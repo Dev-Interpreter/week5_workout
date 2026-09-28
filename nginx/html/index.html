@@ -1,9 +1,115 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>나의 캡스톤 소개</title><link rel="stylesheet" href="style.css"><script defer src="app.js"></script></head>
-<body><main><header><p class="eyebrow">WEEK 5 · CAPSTONE</p><h1 id="project-title">TODO: 프로젝트 이름</h1><p>누적 조회수 <strong id="view-count">불러오는 중</strong></p></header>
-<!-- TODO: AI를 활용해 디자인과 소개 내용을 완성하세요. 아래 id는 API 연결에 사용하므로 유지하세요. -->
-<section><h2>프로젝트 소개</h2><p id="project-summary">TODO: 프로젝트 목적과 해결할 문제를 소개하세요.</p></section>
-<section><h2>주요 기능</h2><div id="project-features">TODO: 주요 기능을 구체적으로 작성하세요.</div></section>
-<section><h2>사용 기술</h2><p id="project-technology">TODO: 사용 기술과 역할을 적으세요.</p></section>
-<section><h2>팀 소개</h2><p>TODO: 팀원과 역할을 작성하세요.</p></section>
-<button id="download-button">소개 내용 다운로드 (.md)</button><button id="refresh-views">조회수 다시 확인</button><p id="message" class="result" aria-live="polite"></p>
-<footer><a href="/api/health">API 연결 확인</a><p>페이지를 열거나 새로고침하면 조회수가 증가합니다.</p></footer></main></body></html>
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>나의 캡스톤 소개</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+</head>
+
+<body>
+    <main>
+        <header>
+            <p class="eyebrow">WEEK 5 · CAPSTONE</p>
+            <h1 id="project-title">IDCloak</h1>
+            <p>누적 조회수 <strong id="view-count">불러오는 중</strong></p>
+        </header>
+        <!-- TODO: AI를 활용해 디자인과 소개 내용을 완성하세요. 아래 id는 API 연결에 사용하므로 유지하세요. -->
+        <section>
+            <h2>프로젝트 소개</h2>
+            <p id="project-summary">
+                IDCloak은 사용자의 얼굴 이미지가 딥페이크 및 Face-Swap 모델에 무단으로 활용되는 것을 방지하기 위한 선제적 얼굴 이미지 보호 시스템이다. 사용자가 얼굴 이미지를 업로드하면 적대적 섭동
+                (Adversarial Perturbation)을 적용하여 사람의 눈에는 큰 차이가 나타나지 않으면서도 AI 모델이 얼굴의 신원 특징(Identity Feature)을 정상적으로 추출하기 어렵도록 보호 이미지를
+                생성한다. </p>
+                <p> 또한 JPEG 압축, Resize 등 실제 SNS에서 발생할 수 있는 이미지 변환 환경을 고려하여 보호 효과의 강인성을 검증하고, Face-Swap 결과와 신원 유사도를 비교하여 보호 성능을 정량적으로 확인할
+                    수 있도록 구성한다. </p>
+            </p>
+        </section>
+        <section>
+            <h2>주요 기능</h2>
+            <div id="project-features">
+                <h3>1. 얼굴 이미지 업로드</h3>
+                <p> 사용자가 보호하고자 하는 얼굴 이미지를 웹에서 업로드하고, 얼굴 영역을 탐지하여 보호 처리에 필요한 데이터를 준비한다. </p>
+                </div>
+                <div class="feature">
+                    <h3>2. 얼굴 이미지 보호</h3>
+                    <p> ArcFace 기반 얼굴 특징을 활용하여 적대적 섭동을 생성하고, 원본 이미지의 시각적 품질을 최대한 유지하면서 AI 모델의 신원 특징 추출을 방해하는 보호 이미지를 생성한다. </p>
+                </div>
+                <div class="feature">
+                    <h3>3. SNS 변환 환경 적용</h3>
+                    <p> JPEG 압축, Resize 등의 이미지 변환을 적용하여 실제 SNS 환경에서도 보호 효과가 유지되는지 확인한다. </p>
+                </div>
+                <div class="feature">
+                    <h3>4. Face-Swap 방어 성능 검증</h3>
+                    <p> SimSwap 등 Face-Swap 모델을 활용하여 원본 이미지와 보호 이미지의 Face-Swap 결과를 비교하고, 보호 이미지가 신원 정보의 무단 활용을 얼마나 방해하는지 확인한다. </p>
+                </div>
+                <div class="feature">
+                    <h3>5. 신원 유사도 분석</h3>
+                    <p> ArcFace의 Identity Embedding과 Cosine Similarity를 활용하여 원본 얼굴과 Face-Swap 결과 사이의 신원 유사도를 측정하고 보호 성능을 정량적으로 평가한다.
+                    </p>
+                </div>
+                <div class="feature">
+                    <h3>6. 이미지 품질 평가</h3>
+                    <p> PSNR, SSIM, LPIPS 등의 지표를 활용하여 원본 이미지와 보호 이미지 사이의 화질 차이를 분석하고 보호 성능과 이미지 품질의 균형을 평가한다. </p>
+                </div>
+                <div class="feature">
+                    <h3>7. 보호 전·후 결과 비교</h3>
+                    <p> 웹 화면에서 원본 이미지, 보호 이미지, Face-Swap 결과를 한눈에 비교할 수 있도록 제공하여 보호 효과를 직관적으로 확인할 수 있도록 한다.
+            </div>
+        </section>
+        <section>
+            <h2>사용 기술</h2>
+            <p id="project-technology">
+                <div>
+                    <h3>프론트엔드</h3>
+                    <p> React 또는 Next.js를 활용하여 사용자가 얼굴 이미지를 업로드하고, 보호 전·후 이미지와 Face-Swap 결과를 비교할 수 있는 웹 화면을 구현한다. </p>
+                </div>
+                <div>
+                    <h3>백엔드</h3>
+                    <p> Python 기반 FastAPI를 활용하여 이미지 업로드, 적대적 섭동 생성 요청, Face-Swap 실행 및 평가 결과 반환 등의 기능을 처리한다. </p>
+                </div>
+                <div>
+                    <h3>딥러닝</h3>
+                    <p> PyTorch와 CUDA를 활용하여 ArcFace 기반 얼굴 특징 추출, 적대적 섭동 생성 및 Face-Swap 모델 추론을 수행한다. </p>
+                </div>
+                <div>
+                    <h3>얼굴 인식</h3>
+                    <p> ArcFace 및 InsightFace를 활용하여 얼굴의 Identity Embedding을 추출하고, 원본과 합성 결과 사이의 신원 유사도를 계산한다. </p>
+                </div>
+                <div>
+                    <h3>Face-Swap</h3>
+                    <p> SimSwap 등 공개 Face-Swap 모델을 활용하여 보호 이미지의 방어 성능과 모델 간 전이성을 검증한다. </p>
+                </div>
+                <div>
+                    <h3>이미지 처리</h3>
+                    <p> OpenCV, Pillow, NumPy를 활용하여 얼굴 이미지 전처리, JPEG 압축, Resize, Blur 등의 SNS 이미지 변환 환경을 구현한다. </p>
+                </div>
+                <div>
+                    <h3>강인성 처리</h3>
+                    <p> DiffJPEG 또는 미분 가능한 JPEG 처리 기법을 활용하여 압축 이후에도 보호 효과가 유지되도록 적대적 섭동을 최적화한다. </p>
+                </div>
+                <div>
+                    <h3>성능 평가</h3>
+                    <p> Cosine Similarity, PSNR, SSIM, LPIPS를 활용하여 Face-Swap 방어 성능과 보호 이미지의 화질을 평가한다. </p>
+                </div>
+            </p>
+        </section>
+        <section>
+            <h2>팀 소개</h2>
+            <p>프론트엔드: 김현민</p>
+            <p>백엔드: 김인래</p>
+            <p>모델 담당: 이민서</p>
+        </section>
+        <button id="download-button">소개 내용 다운로드 (.md)</button>
+        <button id="refresh-views">조회수 다시 확인</button>
+        <p id="message" class="result" aria-live="polite"></p>
+        <footer>
+            <a href="/api/health">API 연결 확인</a>
+            <p>페이지를 열거나 새로고침하면 조회수가 증가합니다.</p>
+        </footer>
+    </main>
+</body>
+
+</html>
